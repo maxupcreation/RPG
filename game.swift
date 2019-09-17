@@ -7,6 +7,9 @@
 //
 
 import Foundation
+   var indexplayer1 = 0
+var indexplayer2 = 0
+
 
 class Game {
     let player1 : Player
@@ -24,12 +27,26 @@ class Game {
         player2.createteam()
         
     }
-    
+ 
     func fight() {
+   
         
-        player1.selectCharacter()
+        print( player1.name + " choisi un héros pour combattre")
+       indexplayer1 = player1.selectCharacter()
+       
+        print (" Qui veux-tu attaquer ?")
+      indexplayer2 =  player2.selectCharacter()
+    
+         player2.team[indexplayer2].hp -= player1.team[indexplayer1].weapon.actionspoints
+    print( player1.team[indexplayer1].name + " attaque " + player2.team[indexplayer2].name )
+        print ( player1.team[indexplayer1].name , " a perdu " , player1.team[indexplayer1].weapon.actionspoints)
+        print(" il reste " , player2.team[indexplayer2].hp , " à ", player2.team[indexplayer2].name  )
+        
+     /*   print( player2.name + " choisi un héros pour combattre")
         player2.selectCharacter()
-        
+    print (" Qui veux-tu attaquer ?")
+        player1.selectCharacter()
+    */
     }
 
 }

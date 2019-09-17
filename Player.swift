@@ -8,7 +8,7 @@
 
 import Foundation
 
-var choiceheroe : Int?
+var indexheroe : Int = 0
 var namechoice : String = ""
 
 class Player {
@@ -42,22 +42,26 @@ class Player {
     
     
     
-    func selectCharacter(){
-       print(" selectionne le héros de ton choix")
-        print("\n 1.   " + team[0].name + "\n   2.  " + team[1].name + "\n  3  " + team[2].name)
+    func selectCharacter() -> Int {
+       print("\n 1.   " + team[0].name + "\n   2.  " + team[1].name + "\n  3.  " + team[2].name)
         if let choice = readLine()
         {
             switch choice {
-            case "1" : choiceheroe = 1
-            case "2" : choiceheroe = 2
-            case "3" : choiceheroe = 3
+            case "1" : indexhero = 0
+            case "2" : indexhero = 1
+            case "3" : indexhero = 2
             
             
             
             default : print("erreur, choix incorrect"); return selectCharacter()
+        
             }
+           
         }
+     return indexhero
     }
+    
+    
     
 
     // choice name for Character(createteam)

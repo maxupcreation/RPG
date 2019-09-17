@@ -14,5 +14,7 @@ class Assassin : Character {
         self.weapon = Weapon(name: "Dague" , actionspoints: 15, type: .Attack)
         self.hp = 100
         
+        
+            
 }
 }

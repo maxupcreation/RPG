@@ -19,8 +19,13 @@ class Character {
         self.weapon = Weapon(name: "Epée", actionspoints: 10, type: .Attack)
         self.hp = 110
         
-        
-    } }
+    /*    func description() {
+            print("nom :  " + self.name)
+            print("vie :   \(self.hp) ")
+            print("Arme:   \(self.weapon)" ) */
+        }
+
+}
 
 
 

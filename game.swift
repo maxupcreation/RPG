@@ -15,6 +15,7 @@ class Game {
     init(player1 : Player, player2 : Player){
         self.player1 = player1
         self.player2 = player2
+    
     }
     
     func start() {
@@ -23,4 +24,13 @@ class Game {
         player2.createteam()
         
     }
+    
+    func fight() {
+        
+        player1.selectCharacter()
+        player2.selectCharacter()
+        
+    }
+
 }
+

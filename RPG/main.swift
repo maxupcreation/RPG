@@ -8,5 +8,7 @@
 
 import Foundation
 
+let game = Game (player1: Player (name : " Joueur 1"), player2: Player( name: " Joueur 2"))
 
-    
+game.start()
+//game.fight()

@@ -12,3 +12,4 @@ let game = Game (player1: Player (name : " Joueur 1"), player2: Player( name: " 
 
 game.start()
 game.fight()
+

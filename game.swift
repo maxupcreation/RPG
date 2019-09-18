@@ -7,8 +7,7 @@
 //
 
 import Foundation
-   var indexplayer1 = 0
-var indexplayer2 = 0
+
 
 
 class Game {
@@ -27,27 +26,29 @@ class Game {
         player2.createteam()
         
     }
+    
+    func fightagainst ( fighter1 : Player, fighter2 : Player) {
+        
+        print (fighter1.name + " choisi un héros pour combattre")
+        fighter1.selectCharacter()
+        print (" Qui veux-tu attaquer ?")
+        fighter2.selectCharacter()
+        
+        fighter2.team[indexheroe].hp -= fighter1.team[indexheroe].weapon.actionspoints
+        print( fighter1.team[indexheroe].name + " attaque " + fighter2.team[indexheroe].name )
+        print ( fighter1.team[indexheroe].name , " a perdu " , fighter1.team[indexheroe].weapon.actionspoints)
+        print(" il reste " , fighter2.team[indexheroe].hp , " à ", fighter2.team[indexheroe].name  )
+        
+        
+    }
  
     func fight() {
-   
-        
-        print( player1.name + " choisi un héros pour combattre")
-       indexplayer1 = player1.selectCharacter()
-       
-        print (" Qui veux-tu attaquer ?")
-      indexplayer2 =  player2.selectCharacter()
-    
-         player2.team[indexplayer2].hp -= player1.team[indexplayer1].weapon.actionspoints
-    print( player1.team[indexplayer1].name + " attaque " + player2.team[indexplayer2].name )
-        print ( player1.team[indexplayer1].name , " a perdu " , player1.team[indexplayer1].weapon.actionspoints)
-        print(" il reste " , player2.team[indexplayer2].hp , " à ", player2.team[indexplayer2].name  )
-        
-     /*   print( player2.name + " choisi un héros pour combattre")
-        player2.selectCharacter()
-    print (" Qui veux-tu attaquer ?")
-        player1.selectCharacter()
-    */
+  
+        fightagainst(fighter1: player1, fighter2: player2)
+        fightagainst(fighter1: player2, fighter2: player1)
     }
-
+    
+        
 }
+
 

@@ -62,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				9C98C72C231ED16D00482BEE /* RPG */,
-				9C171160232A797100EC49F1 /* Shaman.swift */,
 				9C98C72B231ED16D00482BEE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +85,7 @@
 				9C171166232A7A1E00EC49F1 /* Wizzard.swift */,
 				9C171162232A799D00EC49F1 /* Archer.swift */,
 				9C17115E232A794000EC49F1 /* Priest.swift */,
+				9C171160232A797100EC49F1 /* Shaman.swift */,
 				9C171168232A7AC900EC49F1 /* Weapon.swift */,
 				9C98C72D231ED16D00482BEE /* main.swift */,
 			);

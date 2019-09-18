@@ -29,20 +29,20 @@ class Player {
             
             print("création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
             
-            repeat {
+            while binserteam == false {
                 print("🗡 1.Guerrier \n" + " 2.Mage \n" + " 3.Assassin \n" + " 4.Archer \n" + " 5.Shaman \n" + " 6.Prêtre \n")
                 
                 if let choice = readLine() {
                     binserteam = insertteam (typechoice: choice)
                 }
-            } while binserteam == false
+            }
             
         }
     }
     
     
     
-    func selectCharacter() -> Int {
+    func selectCharacter()  {
        print("\n 1.   " + team[0].name + "\n   2.  " + team[1].name + "\n  3.  " + team[2].name)
         if let choice = readLine()
         {
@@ -58,7 +58,7 @@ class Player {
             }
            
         }
-     return indexhero
+   
     }
     
     
@@ -73,7 +73,7 @@ class Player {
         }
         return(selectedname())
     }
-    // control name similary for createteam
+    // control similar name in a team
     
     func controlname () -> Bool {
         var alreadyexists: Bool = false
@@ -89,9 +89,11 @@ class Player {
             return true
         }
 
+    // insert heroes choice
+    
     func insertteam (typechoice : String) -> Bool {
         var chaine : String = ""
-        var bnameok : Bool = false
+        var Bnameok : Bool = false
         
         
         switch typechoice {
@@ -106,11 +108,11 @@ class Player {
         
         print ("choisi un nom pour ton " + chaine)
         
-        while (bnameok == false)
+        while (Bnameok == false)
         {
         namechoice = selectedname()
-        bnameok = controlname()
-        if bnameok == true {
+        Bnameok = controlname()
+        if Bnameok == true {
             switch typechoice {
             case "1" : team.insert(Warrior(name: namechoice),at:0)
             case "2" : team.insert(Wizzard(name: namechoice),at:0)

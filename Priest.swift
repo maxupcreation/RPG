@@ -15,4 +15,5 @@ class Priest : Character {
         self.hp = 100
         
 }
+ 
 }

@@ -21,26 +21,22 @@ class Character {
         self.weapon = Weapon(name: "Epée", actionspoints: 10, type: .Attack)
         self.hp = 110
 }
-}
-      /*  func deadF() {
+    func attack (target: Character) {
         
-        if hp >= 0 { dead = true }
+        target.hp -= self.weapon.actionspoints
+        
+        print( self.name + " attaque " + target.name )
+        print ( target.name , " a perdu " , self.weapon.actionspoints)
+        print(" il reste " , target.hp , " à ", target.name  )
+    }
+    
+    func heal(target : Character) {
+        
+        target.hp += self.weapon.actionspoints
+        print(self.name, "soigne", target.name)
+        print(target.name, " a gagné", self.weapon.actionspoints)
+        print("il reste",target.hp, "à", target.name)
+        
+    }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- */

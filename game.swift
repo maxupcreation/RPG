@@ -22,33 +22,40 @@ class Game {
     
     func start() {
         
-        player1.createteam()
-        player2.createteam()
+        player1.createTeam()
+        player2.createTeam()
         
     }
     
-    func fightagainst ( fighter1 : Player, fighter2 : Player) {
+    func fightAgainst ( fighter1 : Player, fighter2 : Player) {
         
-        print (fighter1.name + " choisi un héros pour combattre")
-        fighter1.selectCharacter()
-        print (" Qui veux-tu attaquer ?")
-        fighter2.selectCharacter()
+                print (fighter1.name + " choisi un héros pour combattre")
+        let attakingCharacter = fighter1.selectCharacter()
+    if attakingCharacter is Shaman {
+       print("Que veux-tu faire ?")
+       print("1. Attaquer /n 2.Soigner ")
+       if let choice = readLine() {
+            switch choice {
+                case "1" : break
+                    case "2" :
+                        print("qui veux-tu soigner?")
+                        let defendingCharacter = fighter1.selectCharacter()
+                        attakingCharacter.heal(target:defendingCharacter)
+                
+                        default : print("erreur")
+            }
+        }
         
-        fighter2.team[indexheroe].hp -= fighter1.team[indexheroe].weapon.actionspoints
-        print( fighter1.team[indexheroe].name + " attaque " + fighter2.team[indexheroe].name )
-        print ( fighter1.team[indexheroe].name , " a perdu " , fighter1.team[indexheroe].weapon.actionspoints)
-        print(" il reste " , fighter2.team[indexheroe].hp , " à ", fighter2.team[indexheroe].name  )
+        }   ;
         
         
-    }
- 
-    func fight() {
-  
-        fightagainst(fighter1: player1, fighter2: player2)
-        fightagainst(fighter1: player2, fighter2: player1)
-    }
-    
-        
+     let defendingCharacter = fighter2.selectCharacter()
+     print (" Qui veux-tu attaquer ?")
+     attakingCharacter.attack(target: defendingCharacter) }
+
+     func fight() {
+        print("Lancement du combat")
+        fightAgainst(fighter1: player1, fighter2: player2)
+        fightAgainst(fighter1: player2, fighter2: player1)
+     }
 }
-
-

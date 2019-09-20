@@ -16,5 +16,6 @@ class Shaman : Character {
         self.hp = 100
         
 }
+
     
 }

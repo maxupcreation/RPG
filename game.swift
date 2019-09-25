@@ -20,6 +20,8 @@ class Game {
     
     }
     
+    
+    
     func start() {
         
         player1.createTeam()
@@ -38,24 +40,53 @@ class Game {
             switch choice {
                 case "1" : break
                     case "2" :
-                        print("qui veux-tu soigner?")
-                        let defendingCharacter = fighter1.selectCharacter()
-                        attakingCharacter.heal(target:defendingCharacter)
-                
-                        default : print("erreur")
+                    print("qui veux-tu soigner?")
+                    let defendingCharacter = fighter1.selectCharacter()
+                    attakingCharacter.heal(target:defendingCharacter); return
+                    default : print("erreur")
             }
         }
-        
-        }   ;
-        
-        
-     let defendingCharacter = fighter2.selectCharacter()
-     print (" Qui veux-tu attaquer ?")
-     attakingCharacter.attack(target: defendingCharacter) }
-
-     func fight() {
+    }
+    ; if attakingCharacter is Priest {
+        print("Qui veux-tu soigner?")
+        let defendingCharacter = fighter1.selectCharacter()
+        attakingCharacter.heal(target:defendingCharacter); return
+      }
+     ;print (" Qui veux-tu attaquer ?")
+      let defendingCharacter = fighter2.selectCharacter()
+      attakingCharacter.attack(target: defendingCharacter)
+    }
+    
+    func teamIsAlive ( fighter : Player) -> Bool {
+        var i = 0
+        while i < fighter.team.count
+        {
+            if fighter.team[i].controlAlive() == true {return true}
+         i += 1
+        }
+        return false
+    }
+    
+    
+    func fight() {
         print("Lancement du combat")
-        fightAgainst(fighter1: player1, fighter2: player2)
-        fightAgainst(fighter1: player2, fighter2: player1)
-     }
-}
+        var t = 0
+        
+        while teamIsAlive(fighter: player1) && teamIsAlive(fighter: player2) == true
+        {
+            fightAgainst(fighter1: player1, fighter2: player2)
+            t += 1 ; print("tour" , t )
+            fightAgainst(fighter1: player2, fighter2: player1)
+            t += 1; print("tour" , t )
+        }
+        if teamIsAlive(fighter: player1) == true {print ("equipe 1 a gagné")}
+        else { print("equipe 2 a gagné")
+            
+        }
+        
+    }
+    
+    
+}  
+
+

@@ -16,6 +16,7 @@
 		9C171165232A79DF00EC49F1 /* Assassin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C171164232A79DF00EC49F1 /* Assassin.swift */; };
 		9C171167232A7A1E00EC49F1 /* Wizzard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C171166232A7A1E00EC49F1 /* Wizzard.swift */; };
 		9C171169232A7AC900EC49F1 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C171168232A7AC900EC49F1 /* Weapon.swift */; };
+		9C87DC4923391BC900BBBC79 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C87DC4823391BC900BBBC79 /* Case.swift */; };
 		9C98C72E231ED16D00482BEE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C98C72D231ED16D00482BEE /* main.swift */; };
 		9CD2218E2329386F00B8021A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2218D2329386F00B8021A /* Character.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		9C171164232A79DF00EC49F1 /* Assassin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Assassin.swift; path = ../Assassin.swift; sourceTree = "<group>"; };
 		9C171166232A7A1E00EC49F1 /* Wizzard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Wizzard.swift; path = ../Wizzard.swift; sourceTree = "<group>"; };
 		9C171168232A7AC900EC49F1 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Weapon.swift; path = ../Weapon.swift; sourceTree = "<group>"; };
+		9C87DC4823391BC900BBBC79 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Case.swift; path = ../Case.swift; sourceTree = "<group>"; };
 		9C98C72A231ED16D00482BEE /* RPG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RPG; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C98C72D231ED16D00482BEE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9CD2218D2329386F00B8021A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Character.swift; path = ../Character.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				9C17115E232A794000EC49F1 /* Priest.swift */,
 				9C171160232A797100EC49F1 /* Shaman.swift */,
 				9C171168232A7AC900EC49F1 /* Weapon.swift */,
+				9C87DC4823391BC900BBBC79 /* Case.swift */,
 				9C98C72D231ED16D00482BEE /* main.swift */,
 			);
 			path = RPG;
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C17115F232A794000EC49F1 /* Priest.swift in Sources */,
+				9C87DC4923391BC900BBBC79 /* Case.swift in Sources */,
 				9C171159232A4FC600EC49F1 /* Warrior.swift in Sources */,
 				9CD2218E2329386F00B8021A /* Character.swift in Sources */,
 				9C98C72E231ED16D00482BEE /* main.swift in Sources */,

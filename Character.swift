@@ -15,7 +15,7 @@ class Character {
     var weapon : Weapon
     var hp : Int
   
-    
+ 
     init (name : String) {
         self.name = name
         self.weapon = Weapon(name: "Epée", actionspoints: 10, type: .Attack)
@@ -28,15 +28,28 @@ class Character {
         print( self.name + " attaque " + target.name )
         print ( target.name , " a perdu " , self.weapon.actionspoints)
         print(" il reste " , target.hp , " à ", target.name  )
+    
     }
     
-    func heal(target : Character) {
+    func heal(target:Character){
         
         target.hp += self.weapon.actionspoints
         print(self.name, "soigne", target.name)
         print(target.name, " a gagné", self.weapon.actionspoints)
         print("il reste",target.hp, "à", target.name)
+ 
         
     }
-    
-}
+    func controlAlive() -> Bool {
+        if self.hp <= 0 { print("mort")
+        return false
+            
+        
+            
+        }
+          return true
+    }
+
+        
+    }
+

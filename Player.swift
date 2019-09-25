@@ -17,6 +17,10 @@ class Player {
    
     // create team with bool insertteam()
     
+    
+        
+    
+    
     func createTeam() {
         while team.count < 3 {
           print("création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
@@ -27,18 +31,24 @@ class Player {
         }
     }
     
+    func displayStateCharacter(character : Character, index : Int) -> String {
+        var stateCharacter = ""
+        if (character.controlAlive() == false) { stateCharacter = " (mort) "}
+        return("\n " + String(index+1) + ".    " + character.name + stateCharacter)
+        
+    }
     
+
+        func selectCharacter() -> Character  {
     
-    func selectCharacter() -> Character  {
-       print("\n 1.   " + team[0].name + "\n   2.  " + team[1].name + "\n  3.  " + team[2].name)
+        print (displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
         if let choice = readLine()
         {
             switch choice {
-            case "1" : return team[0]
-            case "2" : return team[1]
-            case "3" : return team[2]
-            
-            
+            case "1" : if  team[0].controlAlive() == true { return team[0]}
+            case "2" : if  team[1].controlAlive() == true {return team[1]}
+            case "3" : if  team[2].controlAlive() == true {return team[2]}
+
             
             default : print("erreur, choix incorrect");
         

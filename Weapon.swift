@@ -25,3 +25,4 @@ enum WeaponType {
     case Attack, Heal
     
 }
+

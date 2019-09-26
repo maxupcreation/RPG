@@ -82,6 +82,7 @@
 				9C17115A232A5F4F00EC49F1 /* game.swift */,
 				9C17115C232A61E500EC49F1 /* Player.swift */,
 				9CD2218D2329386F00B8021A /* Character.swift */,
+				9C87DC4823391BC900BBBC79 /* Case.swift */,
 				9C171158232A4FC500EC49F1 /* Warrior.swift */,
 				9C171164232A79DF00EC49F1 /* Assassin.swift */,
 				9C171166232A7A1E00EC49F1 /* Wizzard.swift */,
@@ -89,7 +90,6 @@
 				9C17115E232A794000EC49F1 /* Priest.swift */,
 				9C171160232A797100EC49F1 /* Shaman.swift */,
 				9C171168232A7AC900EC49F1 /* Weapon.swift */,
-				9C87DC4823391BC900BBBC79 /* Case.swift */,
 				9C98C72D231ED16D00482BEE /* main.swift */,
 			);
 			path = RPG;

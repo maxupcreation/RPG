@@ -17,7 +17,7 @@ class Weapon {
         self.type = type
         
     }
-    
+   
 }
 
 enum WeaponType {
@@ -25,4 +25,6 @@ enum WeaponType {
     case Attack, Heal
     
 }
+
+
 

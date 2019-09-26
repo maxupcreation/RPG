@@ -16,11 +16,6 @@ class Player {
     }
    
     // create team with bool insertteam()
-    
-    
-        
-    
-    
     func createTeam() {
         while team.count < 3 {
           print("création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
@@ -30,7 +25,7 @@ class Player {
           }
         }
     }
-    
+    // function that displays the status of the character in the print
     func displayStateCharacter(character : Character, index : Int) -> String {
         var stateCharacter = ""
         if (character.controlAlive() == false) { stateCharacter = " (mort) "}
@@ -38,8 +33,8 @@ class Player {
         
     }
     
-
-        func selectCharacter() -> Character  {
+    // function that allows you to choose a character
+    func selectCharacter() -> Character  {
     
         print (displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
         if let choice = readLine()

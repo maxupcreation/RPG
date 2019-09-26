@@ -49,7 +49,24 @@ class Character {
         }
           return true
     }
-
+    
+    // weapon case effect
+    func weaponBonusMalus() {
+        if weapon.name == "Barbe à papa magique" {
+            self.hp += 30 ; print((self.name) , "a gagné 50 point de vie grâce à barbe à papa magique, mais l'arme de semble pas trés puissante...")
+        }
+        if weapon.name == "Epée maléfique du seigneur noir" {
+            self.hp -= 80; print("l'Epée maléfique du seigneur noir aspire l'energie de" , (self.name) , "et lui fait perdre 80 points de vie")
+        }
+        
+        if weapon.name == "Lame maudite du monde des morts" {
+            self.hp = 1; print((self.name), " semble soudain entre la vie et la mort mais la lame maudite semble incroyablement destructrice", (self.hp),"de vie")
+    }
+        if weapon.name == "Baton de jouvance"{
+            self.hp = 200; print ( (self.name) , "s'illumine soudainement, rajeunissant ses traits et l'enveloppant d'une chaleur douce et agréable", (self.name), "a" ,(self.hp),"de vie")
         
     }
-
+    
+    }
+}
+}

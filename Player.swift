@@ -18,8 +18,8 @@ class Player {
     // create team with bool insertteam()
     func createTeam() {
         while team.count < 3 {
-          print("création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
-          print("🗡 1.Guerrier \n" + " 2.Mage \n" + " 3.Assassin \n" + " 4.Archer \n" + " 5.Shaman \n" + " 6.Prêtre \n")
+          print("◻️ Création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
+          print("🗡 1.Guerrier \n" + "✨ 2.Mage \n" + "🔪 3.Assassin \n" + "🏹 4.Archer \n" + "🌳 5.Shaman \n" + "🔅 6.Prêtre \n")
           if let choice = readLine() {
              insertInTeam (typechoice: choice)
           }
@@ -28,7 +28,12 @@ class Player {
     // function that displays the status of the character in the print
     func displayStateCharacter(character : Character, index : Int) -> String {
         var stateCharacter = ""
-        if (character.controlAlive() == false) { stateCharacter = " (mort) "}
+        var countD = 0
+        if (character.controlAlive() == false) {
+            if countD == 0 {stateCharacter = " ☠ Mort "; countD += 1}
+            
+        }
+        symbolTypeCharacter()
         return("\n " + String(index+1) + ".    " + character.name + stateCharacter)
         
     }
@@ -36,7 +41,7 @@ class Player {
     // function that allows you to choose a character
     func selectCharacter() -> Character  {
     
-        print (displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
+        print(symbolTypeCharacter() , displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
         if let choice = readLine()
         {
             switch choice {
@@ -89,15 +94,15 @@ class Player {
         
         
                       switch typechoice {
-                      case "1" : typeCharacter = "guerrier"
-                      case "2" : typeCharacter = "Mage"
-                      case "3" : typeCharacter = "assassin"
-                      case "4" : typeCharacter = "archer"
-                      case "5" : typeCharacter = "shaman"
-                      case "6" : typeCharacter = "prêtre"
+                      case "1" : typeCharacter = "guerrier 🗡 "
+                      case "2" : typeCharacter = "Mage ✨"
+                      case "3" : typeCharacter = "assassin 🔪"
+                      case "4" : typeCharacter = "archer 🏹"
+                      case "5" : typeCharacter = "shaman 🌳"
+                      case "6" : typeCharacter = "prêtre 🔅"
                       default: print ("erreur");
                       }
-        print ("choisi un nom pour ton " + typeCharacter)
+        print ("▶︎ Choisi un nom pour ton " + typeCharacter)
         
         while (isNameOk == false)
         {
@@ -113,10 +118,14 @@ class Player {
                        case "6" : team.insert(Priest(name: namechoice),at:0)
                        default: print ("erreur");
                     }
-        print( namechoice + " a bien été ajouté dans ton equipe ")
+        print("♦️",namechoice + " a bien été ajouté dans ton équipe !")
               }
         
        }
+        
+    }
+    func symbolTypeCharacter(){
+        if team[0] is Warrior {print("🗡") }
         
     }
     

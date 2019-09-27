@@ -12,6 +12,7 @@ import Foundation
 class Game {
     let player1 : Player
     let player2 : Player
+    var c = 1
     
     init(player1 : Player, player2 : Player){
         self.player1 = player1
@@ -35,7 +36,7 @@ class Game {
     // We add a chance to find a case with a weapon on each player's turn
         
          let weaponCase = Case()
-                print (fighter1.name + " choisi un héros pour combattre")
+                print ("🕹",fighter1.name + " choisi un héros pour combattre")
         let attakingCharacter = fighter1.selectCharacter()
     
     // If he's a Shaman, he has a choice between attacking or healing
@@ -46,7 +47,11 @@ class Game {
             attakingCharacter.weapon = newWeapon
                 
             }
-            attakingCharacter.weaponBonusMalus()
+            
+            if c == 1 {
+                attakingCharacter.weaponBonusMalus()
+                c += 1
+            }
             
             print("Que veux-tu faire ?")
             print("1. Attaquer /n 2.Soigner ")
@@ -75,13 +80,17 @@ class Game {
             attakingCharacter.weapon = newWeapon
           
         }
-          attakingCharacter.weaponBonusMalus()
+        // the effects of the new weapons are only applied once
+        if c == 1 {
+                attakingCharacter.weaponBonusMalus()
+                c += 1
+            }
         // if it's not a shaman or a priest, he can attack
-            
+        }
         print (" Qui veux-tu attaquer ?")
         let defendingCharacter = fighter2.selectCharacter()
         attakingCharacter.attack(target: defendingCharacter)
-    }
+    
 }
     // We check the state of the players of each character on the team, as long as they are all alive, we return true
     
@@ -98,7 +107,7 @@ class Game {
     // fight phase, we attack the characters
     
     func fight() {
-        print("Lancement du combat")
+        print("⚔️ Lancement du combat")
         var t = 0
         var team1Alive = teamIsAlive(fighter: player1)
         var team2Alive = teamIsAlive(fighter: player2)
@@ -113,12 +122,12 @@ class Game {
             }
             team1Alive = teamIsAlive(fighter: player1)
             // we count the turn
-            t += 1; print("tour" , t )
+            t += 1; print("⏳ tour" , t )
         
         }
         // If Player 1's team is alive, it means he won, otherwise it's Team 2.
-        if teamIsAlive(fighter: player1) {print ("equipe 1 a gagné")}
-        else { print("equipe 2 a gagné")
+        if teamIsAlive(fighter: player1) {print ("🎊 Equipe 1 a gagné")}
+        else { print("🎊 Equipe 2 a gagné")
             
         }
         

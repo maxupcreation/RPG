@@ -45,13 +45,14 @@ class Game {
         
             if let newWeapon = weaponCase.randomWeapon() {
             attakingCharacter.weapon = newWeapon
-                
+                 // the effects of the new weapons are only applied once
+                if c == 1 {
+                    attakingCharacter.weaponBonusMalus()
+                    c += 1
+                }
             }
             
-            if c == 1 {
-                attakingCharacter.weaponBonusMalus()
-                c += 1
-            }
+            
             
             print("Que veux-tu faire ?")
             print("1. Attaquer /n 2.Soigner ")
@@ -78,13 +79,14 @@ class Game {
         else {
         if let newWeapon = weaponCase.randomWeapon(){
             attakingCharacter.weapon = newWeapon
-          
-        }
-        // the effects of the new weapons are only applied once
-        if c == 1 {
+             // the effects of the new weapons are only applied once
+            if c == 1 {
                 attakingCharacter.weaponBonusMalus()
                 c += 1
             }
+        }
+       
+      
         // if it's not a shaman or a priest, he can attack
         }
         print (" Qui veux-tu attaquer ?")
@@ -122,7 +124,7 @@ class Game {
             }
             team1Alive = teamIsAlive(fighter: player1)
             // we count the turn
-            t += 1; print("⏳ tour" , t )
+            t += 1; print("⏳ Tour" , t )
         
         }
         // If Player 1's team is alive, it means he won, otherwise it's Team 2.

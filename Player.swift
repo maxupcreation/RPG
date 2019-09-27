@@ -33,7 +33,7 @@ class Player {
             if countD == 0 {stateCharacter = " ☠ Mort "; countD += 1}
             
         }
-        symbolTypeCharacter()
+      
         return("\n " + String(index+1) + ".    " + character.name + stateCharacter)
         
     }
@@ -41,7 +41,7 @@ class Player {
     // function that allows you to choose a character
     func selectCharacter() -> Character  {
     
-        print(symbolTypeCharacter() , displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
+        print(displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
         if let choice = readLine()
         {
             switch choice {
@@ -124,10 +124,7 @@ class Player {
        }
         
     }
-    func symbolTypeCharacter(){
-        if team[0] is Warrior {print("🗡") }
-        
-    }
+   
     
     
 }

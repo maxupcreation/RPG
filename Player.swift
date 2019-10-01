@@ -25,6 +25,7 @@ class Player {
           }
         }
     }
+    
     // function that displays the status of the character in the print
     func displayStateCharacter(character : Character, index : Int) -> String {
         var stateCharacter = ""
@@ -33,8 +34,23 @@ class Player {
             if countD == 0 {stateCharacter = " ☠ Mort "; countD += 1}
             
         }
+        
+        //function for print emoji type character
+        func emojiCharacter() -> String {
+            var emoji : String = ""
+            switch character {
+            case is Warrior :  emoji = "🗡  "
+            case is Wizzard :  emoji = "✨  "
+            case is Assassin:  emoji = "🔪  "
+            case is Shaman :   emoji = "🌳  "
+            case is Archer :   emoji = "🏹  "
+            case is Priest :   emoji = "🔅  "
+            default : break
+            }
+            return emoji
+        }
       
-        return("\n " + String(index+1) + ".    " + character.name + stateCharacter)
+        return("\n " + emojiCharacter() + String(index+1) + ".    " + character.name + stateCharacter)
         
     }
     
@@ -57,11 +73,7 @@ class Player {
         }
     return selectCharacter()
     }
-    
-    
-    
-
-    // choice name for Character(createteam)
+// choice name for Character(createteam)
     func selectedName() -> String {
         if let choice = readLine(){
             if choice != ""  {
@@ -70,7 +82,8 @@ class Player {
         }
         return(selectedName())
     }
-    // control similar name in a team
+    
+// control similar name in a team
     
     func controlname (name : String ) -> Bool {
         var alreadyExists: Bool = false
@@ -103,11 +116,10 @@ class Player {
                       default: print ("erreur");
                       }
         print ("▶︎ Choisi un nom pour ton " + typeCharacter)
-        
         while (isNameOk == false)
         {
-     let namechoice = selectedName()
-            isNameOk = controlname(name : namechoice)
+              let namechoice = selectedName()
+              isNameOk = controlname(name : namechoice)
               if isNameOk == true {
                     switch typechoice {
                        case "1" : team.insert(Warrior(name: namechoice),at:0)

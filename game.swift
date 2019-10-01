@@ -12,7 +12,7 @@ import Foundation
 class Game {
     let player1 : Player
     let player2 : Player
-    var c = 1
+    
     
     init(player1 : Player, player2 : Player){
         self.player1 = player1
@@ -42,18 +42,11 @@ class Game {
     // If he's a Shaman, he has a choice between attacking or healing
         
         if attakingCharacter is Shaman {
-        
             if let newWeapon = weaponCase.randomWeapon() {
             attakingCharacter.weapon = newWeapon
                  // the effects of the new weapons are only applied once
-                if c == 1 {
-                    attakingCharacter.weaponBonusMalus()
-                    c += 1
+              attakingCharacter.weaponBonusMalus()
                 }
-            }
-            
-            
-            
             print("Que veux-tu faire ?")
             print("1. Attaquer /n 2.Soigner ")
             if let choice = readLine() {
@@ -64,8 +57,9 @@ class Game {
                     attakingCharacter.heal(target:defendingCharacter); return
                     default : print("erreur")
             }
+          }
         }
-    }
+    
         // if it's a priest, he can only heal (no case because no weapon)
             
         else if attakingCharacter is Priest {
@@ -80,20 +74,19 @@ class Game {
         if let newWeapon = weaponCase.randomWeapon(){
             attakingCharacter.weapon = newWeapon
              // the effects of the new weapons are only applied once
-            if c == 1 {
-                attakingCharacter.weaponBonusMalus()
-                c += 1
+          attakingCharacter.weaponBonusMalus()
             }
         }
        
       
         // if it's not a shaman or a priest, he can attack
-        }
+    
+        attakingCharacter.weaponBonusMalus()
         print (" Qui veux-tu attaquer ?")
         let defendingCharacter = fighter2.selectCharacter()
         attakingCharacter.attack(target: defendingCharacter)
     
-}
+    } 
     // We check the state of the players of each character on the team, as long as they are all alive, we return true
     
     func teamIsAlive ( fighter : Player) -> Bool {
@@ -128,13 +121,13 @@ class Game {
         
         }
         // If Player 1's team is alive, it means he won, otherwise it's Team 2.
-        if teamIsAlive(fighter: player1) {print ("🎊 Equipe 1 a gagné")}
-        else { print("🎊 Equipe 2 a gagné")
+        if teamIsAlive(fighter: player1) {print ("🎊 Equipe 1 a gagné !")}
+        else { print("🎊 Equipe 2 a gagné !")
             
         }
         
     }
-    
+
     
 }  
 

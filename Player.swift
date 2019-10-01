@@ -13,15 +13,23 @@ class Player {
     var team = [Character]()
     init (name: String) {
         self.name = name
+    }    
+    func descriptTeamWin(){
+        for DescriptTeam in team {
+            DescriptTeam.description()
+            
+        }
+        
     }
-   
+    
+    
     // create team with bool insertteam()
-    func createTeam() {
+    func createTeam(otherPlayer : Player) {
         while team.count < 3 {
           print("◻️ Création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
           print("🗡 1.Guerrier \n" + "✨ 2.Mage \n" + "🔪 3.Assassin \n" + "🏹 4.Archer \n" + "🌳 5.Shaman \n" + "🔅 6.Prêtre \n")
           if let choice = readLine() {
-             insertInTeam (typechoice: choice)
+             insertInTeam (typechoice: choice, otherPlayer : otherPlayer)
           }
         }
     }
@@ -85,23 +93,31 @@ class Player {
     
 // control similar name in a team
     
-    func controlname (name : String ) -> Bool {
+    func controlname (nameControl : String, otherPlayer : Player ) -> Bool {
         var alreadyExists: Bool = false
         
         for oneTeam in team {
-            if name.uppercased() == oneTeam.name.uppercased(){
+            if nameControl.uppercased() == oneTeam.name.uppercased(){
                 
                 alreadyExists = true;
             }
             if (alreadyExists) {print("Le nom existe déja"); return false}
                 
             }
+        
+        for oneTeam in otherPlayer.team {
+            if nameControl.uppercased() == oneTeam.name.uppercased(){
+                
+                alreadyExists = true;
+            }
+            if (alreadyExists) {print("Le nom existe déja"); return false}
+        }
             return true
         }
 
     // insert heroes choice
     
-    func insertInTeam (typechoice : String) {
+    func insertInTeam (typechoice : String, otherPlayer : Player) {
         var typeCharacter : String = ""
         var isNameOk : Bool = false
         
@@ -119,7 +135,8 @@ class Player {
         while (isNameOk == false)
         {
               let namechoice = selectedName()
-              isNameOk = controlname(name : namechoice)
+            
+           isNameOk = controlname (nameControl: namechoice, otherPlayer : otherPlayer)
               if isNameOk == true {
                     switch typechoice {
                        case "1" : team.insert(Warrior(name: namechoice),at:0)

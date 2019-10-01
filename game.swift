@@ -13,7 +13,6 @@ class Game {
     let player1 : Player
     let player2 : Player
     
-    
     init(player1 : Player, player2 : Player){
         self.player1 = player1
         self.player2 = player2
@@ -24,27 +23,28 @@ class Game {
     
     func start() {
         
-        player1.createTeam()
-        player2.createTeam()
+        player1.createTeam(otherPlayer : player2)
+        player2.createTeam(otherPlayer: player1)
         
     }
+    
     
 // we select the character and who will attack
     
     func fightAgainst ( fighter1 : Player, fighter2 : Player){
     
-    // We add a chance to find a case with a weapon on each player's turn
+// We add a chance to find a case with a weapon on each player's turn
         
          let weaponCase = Case()
                 print ("🕹",fighter1.name + " choisi un héros pour combattre")
         let attakingCharacter = fighter1.selectCharacter()
     
-    // If he's a Shaman, he has a choice between attacking or healing
+// If he's a Shaman, he has a choice between attacking or healing
         
         if attakingCharacter is Shaman {
             if let newWeapon = weaponCase.randomWeapon() {
             attakingCharacter.weapon = newWeapon
-                 // the effects of the new weapons are only applied once
+// the effects of the new weapons are only applied once
               attakingCharacter.weaponBonusMalus()
                 }
             print("Que veux-tu faire ?")
@@ -60,7 +60,7 @@ class Game {
           }
         }
     
-        // if it's a priest, he can only heal (no case because no weapon)
+// if it's a priest, he can only heal (no case because no weapon)
             
         else if attakingCharacter is Priest {
         print("Qui veux-tu soigner?")
@@ -68,18 +68,18 @@ class Game {
         attakingCharacter.heal(target:defendingCharacter); return
         }
             
-        // if it's another class, he has a chance of getting a safe.
+// if it's another class, he has a chance of getting a safe.
             
         else {
         if let newWeapon = weaponCase.randomWeapon(){
             attakingCharacter.weapon = newWeapon
-             // the effects of the new weapons are only applied once
+// the effects of the new weapons are only applied once
           attakingCharacter.weaponBonusMalus()
             }
         }
        
       
-        // if it's not a shaman or a priest, he can attack
+// if it's not a shaman or a priest, he can attack
     
         attakingCharacter.weaponBonusMalus()
         print (" Qui veux-tu attaquer ?")
@@ -87,19 +87,22 @@ class Game {
         attakingCharacter.attack(target: defendingCharacter)
     
     } 
-    // We check the state of the players of each character on the team, as long as they are all alive, we return true
+// We check the state of the players of each character on the team, as long as they are all alive, we return true
     
     func teamIsAlive ( fighter : Player) -> Bool {
         var i = 0
         while i < fighter.team.count
         {
             if fighter.team[i].controlAlive() {return true}
+           
          i += 1
         }
         return false
     }
+
     
-    // fight phase, we attack the characters
+    
+// fight phase, we attack the characters
     
     func fight() {
         print("⚔️ Lancement du combat")
@@ -118,16 +121,19 @@ class Game {
             team1Alive = teamIsAlive(fighter: player1)
             // we count the turn
             t += 1; print("⏳ Tour" , t )
-        
         }
-        // If Player 1's team is alive, it means he won, otherwise it's Team 2.
-        if teamIsAlive(fighter: player1) {print ("🎊 Equipe 1 a gagné !")}
-        else { print("🎊 Equipe 2 a gagné !")
-            
+
+    }
+    // If Player 1's team is alive, it means he won, otherwise it's Team 2.
+    func winteam() {
+        if teamIsAlive(fighter: player1) {
+           
+            print ("🎊 Equipe 1 a gagné !"   ); player1.descriptTeamWin() }
+        else {
+            print("🎊 Equipe 2 a gagné !"); player2.descriptTeamWin()
         }
         
     }
-
     
 }  
 

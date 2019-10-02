@@ -13,7 +13,5 @@ class Priest : Character {
         super.init(name : name)
         self.weapon = Weapon(name: "Soin puissant" , actionspoints: 15, type: .Heal)
         self.hp = 100
-        
-}
- 
+        }
 }

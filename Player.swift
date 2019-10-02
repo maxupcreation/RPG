@@ -11,11 +11,15 @@ import Foundation
 class Player {
     var name : String
     var team = [Character]()
+    var b = true
     init (name: String) {
         self.name = name
     }    
     func descriptTeamWin(){
         for DescriptTeam in team {
+            if b == true { print("🕹",self.name,"\n")
+                b = false
+            }
             DescriptTeam.description()
             
         }
@@ -24,6 +28,7 @@ class Player {
     
     
     // create team with bool insertteam()
+    
     func createTeam(otherPlayer : Player) {
         while team.count < 3 {
           print("◻️ Création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
@@ -35,6 +40,7 @@ class Player {
     }
     
     // function that displays the status of the character in the print
+    
     func displayStateCharacter(character : Character, index : Int) -> String {
         var stateCharacter = ""
         var countD = 0
@@ -44,6 +50,7 @@ class Player {
         }
         
         //function for print emoji type character
+        
         func emojiCharacter() -> String {
             var emoji : String = ""
             switch character {
@@ -63,11 +70,11 @@ class Player {
     }
     
     // function that allows you to choose a character
+    
     func selectCharacter() -> Character  {
     
         print(displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
-        if let choice = readLine()
-        {
+        if let choice = readLine(){
             switch choice {
             case "1" : if  team[0].controlAlive() == true { return team[0]}
             case "2" : if  team[1].controlAlive() == true {return team[1]}
@@ -79,9 +86,11 @@ class Player {
             }
           
         }
-    return selectCharacter()
+            return selectCharacter()
     }
-// choice name for Character(createteam)
+
+    // choice name for Character(createteam)
+    
     func selectedName() -> String {
         if let choice = readLine(){
             if choice != ""  {
@@ -91,9 +100,9 @@ class Player {
         return(selectedName())
     }
     
-// control similar name in a team
+    // check similar names for all teams
     
-    func controlname (nameControl : String, otherPlayer : Player ) -> Bool {
+    func controlName (nameControl : String, otherPlayer : Player ) -> Bool {
         var alreadyExists: Bool = false
         
         for oneTeam in team {
@@ -113,7 +122,7 @@ class Player {
             if (alreadyExists) {print("Le nom existe déja"); return false}
         }
             return true
-        }
+    }
 
     // insert heroes choice
     
@@ -132,11 +141,10 @@ class Player {
                       default: print ("erreur");
                       }
         print ("▶︎ Choisi un nom pour ton " + typeCharacter)
-        while (isNameOk == false)
-        {
+        while (isNameOk == false){
               let namechoice = selectedName()
             
-           isNameOk = controlname (nameControl: namechoice, otherPlayer : otherPlayer)
+           isNameOk = controlName (nameControl: namechoice, otherPlayer : otherPlayer)
               if isNameOk == true {
                     switch typechoice {
                        case "1" : team.insert(Warrior(name: namechoice),at:0)
@@ -149,13 +157,8 @@ class Player {
                     }
         print("♦️",namechoice + " a bien été ajouté dans ton équipe !")
               }
-        
-       }
-        
+        }
     }
-   
-    
-    
 }
 
 

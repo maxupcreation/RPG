@@ -7,11 +7,11 @@
 //
 
 import Foundation
+
 class Archer : Character {
     override init (name: String) {
         super.init(name : name)
         self.weapon = Weapon(name: "Arc" , actionspoints: 25, type: .Attack)
         self.hp = 80
-        
-        
-    }}
+        }
+}

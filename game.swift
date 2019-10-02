@@ -29,22 +29,22 @@ class Game {
     }
     
     
-// we select the character and who will attack
+    // we select the character and who will attack
     
     func fightAgainst ( fighter1 : Player, fighter2 : Player){
     
-// We add a chance to find a case with a weapon on each player's turn
+     // We add a chance to find a case with a weapon on each player's turn
         
          let weaponCase = Case()
                 print ("🕹",fighter1.name + " choisi un héros pour combattre")
         let attakingCharacter = fighter1.selectCharacter()
     
-// If he's a Shaman, he has a choice between attacking or healing
+     // If he's a Shaman, he has a choice between attacking or healing
         
         if attakingCharacter is Shaman {
             if let newWeapon = weaponCase.randomWeapon() {
             attakingCharacter.weapon = newWeapon
-// the effects of the new weapons are only applied once
+     // the effects of the new weapons
               attakingCharacter.weaponBonusMalus()
                 }
             print("Que veux-tu faire ?")
@@ -60,7 +60,7 @@ class Game {
           }
         }
     
-// if it's a priest, he can only heal (no case because no weapon)
+    // if it's a priest, he can only heal (no case because no weapon)
             
         else if attakingCharacter is Priest {
         print("Qui veux-tu soigner?")
@@ -68,18 +68,18 @@ class Game {
         attakingCharacter.heal(target:defendingCharacter); return
         }
             
-// if it's another class, he has a chance of getting a safe.
+    // if it's another class, he has a chance of getting a safe.
             
         else {
         if let newWeapon = weaponCase.randomWeapon(){
             attakingCharacter.weapon = newWeapon
-// the effects of the new weapons are only applied once
+     // the effects of the new weapons are only applied once
           attakingCharacter.weaponBonusMalus()
             }
         }
        
       
-// if it's not a shaman or a priest, he can attack
+    // if it's not a shaman or a priest, he can attack
     
         attakingCharacter.weaponBonusMalus()
         print (" Qui veux-tu attaquer ?")
@@ -87,7 +87,8 @@ class Game {
         attakingCharacter.attack(target: defendingCharacter)
     
     } 
-// We check the state of the players of each character on the team, as long as they are all alive, we return true
+
+    // We check the state of the players of each character on the team, as long as they are all alive, we return true
     
     func teamIsAlive ( fighter : Player) -> Bool {
         var i = 0
@@ -99,17 +100,17 @@ class Game {
         }
         return false
     }
-
     
-    
-// fight phase, we attack the characters
+    // fight phase, we attack the characters
     
     func fight() {
         print("⚔️ Lancement du combat")
         var t = 0
         var team1Alive = teamIsAlive(fighter: player1)
         var team2Alive = teamIsAlive(fighter: player2)
-        // as long as both teams are alive, we make them fight
+        
+    // as long as both teams are alive, we make them fight
+        
         while team1Alive && team2Alive
         {
             fightAgainst(fighter1: player1, fighter2: player2)
@@ -124,13 +125,14 @@ class Game {
         }
 
     }
+    
     // If Player 1's team is alive, it means he won, otherwise it's Team 2.
-    func winteam() {
+    
+    func winTeam() {
         if teamIsAlive(fighter: player1) {
-           
-            print ("🎊 Equipe 1 a gagné !"   ); player1.descriptTeamWin() }
+        print ("🎊 Equipe 1 a gagné !\n"); player1.descriptTeamWin(); player2.descriptTeamWin() }
         else {
-            print("🎊 Equipe 2 a gagné !"); player2.descriptTeamWin()
+        print("🎊 Equipe 2 a gagné !\n"); player2.descriptTeamWin(); player1.descriptTeamWin()
         }
         
     }

@@ -15,15 +15,11 @@ class Weapon {
         self.name = name
         self.actionspoints = actionspoints
         self.type = type
-        
     }
-   
 }
-
 enum WeaponType {
     
     case Attack, Heal
-    
 }
 
 

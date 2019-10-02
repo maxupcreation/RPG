@@ -22,11 +22,9 @@ class Character {
         self.name = name
         self.weapon = Weapon(name: "Epée", actionspoints: 10, type: .Attack)
         self.hp = 110
-}
-  
+    }
     
     func attack (target: Character) {
-        
         target.hp -= self.weapon.actionspoints
         if weapon.name == "Dague à double tranchant des exilés" {
             self.hp -= 15; print((weapon.name), "a fait perdre 15 point de vie ❤️ à", (self.name))
@@ -37,21 +35,18 @@ class Character {
         print(" il reste " , target.hp , " point de vie ❤️ à ", target.name  )
     
     }
-    
     func heal(target:Character){
         
         target.hp += self.weapon.actionspoints
         print(self.name, "soigne 💚", target.name)
         print(target.name, " a gagné", self.weapon.actionspoints, "point de vie ❤️")
         print("il reste",target.hp,"de point de vie ❤️ à", target.name)
- 
-        
     }
+    
     func description() {
-    print(self.name,self.hp, self.weapon.actionspoints)
-        
-        
+        print("♦️ Nom:", self.name, "\n❤️ Point de vie :", self.hp, "\n⚔️ Arme :", self.weapon.name, " \n💣 Dégât de l'arme : ",self.weapon.actionspoints,"    \n")
     }
+    
     func controlAlive() -> Bool {
         if self.hp <= 0 {
            
@@ -62,7 +57,9 @@ class Character {
         }
             return true
     }
-    // weapon case effect
+    
+    // weapon case effect (only applied once)
+    
     func weaponBonusMalus() {
         if self.firstBonusMalus == 1 {
             if weapon.name == "Barbe à papa magique" {
@@ -72,17 +69,13 @@ class Character {
             self.hp -= 80; print("l'Epée maléfique du seigneur noir aspire l'energie de" , (self.name) , "et lui fait perdre 80 points de vie ❤️")
             }
             else if weapon.name == "Lame maudite du monde des morts" {
-            self.hp = 1; print((self.name), " semble soudain entre la vie et la mort mais la lame maudite inflige des dégâts puissants", "\nÒÒ il reste", (self.hp), "de vie ❤️ à", (self.name))
+            self.hp = 1; print((self.name), " semble soudain entre la vie et la mort mais la lame maudite inflige des dégâts puissants", "\n il reste", (self.hp), "de vie ❤️ à", (self.name))
             }
             else if weapon.name == "Baton de jouvance"{
             self.hp = 200; print((self.name), "s'illumine soudainement, rajeunissant ses traits et l'enveloppant d'une chaleur douce et agréable","\n", (self.name), "a" ,(self.hp),"de vie ❤️")
-        }
-       firstBonusMalus += 1
+            }
+            firstBonusMalus += 1
+       }
     }
- }
-    
-   
-
-
 }
 

@@ -7,13 +7,11 @@
 //
 
 import Foundation
+
 class Wizzard : Character {
     override init (name: String) {
         super.init(name : name)
         self.weapon = Weapon(name: "sceptre" , actionspoints: 200, type: .Attack)
         self.hp = 90
-        
-    }
-    
-    
+        }
 }

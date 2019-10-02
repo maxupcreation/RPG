@@ -7,7 +7,9 @@
 //
 
 import Foundation
+
 class Warrior : Character {
     override init(name: String) {
         super.init(name: name)
-    } }
+    }
+}

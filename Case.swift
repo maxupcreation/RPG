@@ -19,7 +19,6 @@ class Case {
     Weapon(name: "Dague à double tranchant des exilés", actionspoints: 35, type: .Attack)]
     
     // create a fonction for random weapon
-  
     func randomWeapon() -> Weapon? {
      let randomCase = Int.random(in: 0...100)
      if randomCase > 70 {

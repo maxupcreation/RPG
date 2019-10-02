@@ -25,16 +25,14 @@ class Player {
         }
         
     }
-    
-    
     // create team with bool insertteam()
-    
     func createTeam(otherPlayer : Player) {
         while team.count < 3 {
           print("◻️ Création de l'équipe du" + name + " choisit " + String(3-team.count) + " héros !")
           print("🗡 1.Guerrier \n" + "✨ 2.Mage \n" + "🔪 3.Assassin \n" + "🏹 4.Archer \n" + "🌳 5.Shaman \n" + "🔅 6.Prêtre \n")
-          if let choice = readLine() {
-             insertInTeam (typechoice: choice, otherPlayer : otherPlayer)
+            if let choice = readLine() {
+            if choice >= "1" && choice <= "6" && choice.count == 1 { insertInTeam (typechoice: choice, otherPlayer : otherPlayer)}
+            else {print("erreur choix héros")     }
           }
         }
     }
@@ -76,9 +74,9 @@ class Player {
         print(displayStateCharacter(character : team[0],index : 0) + displayStateCharacter(character : team[1],index : 1) + displayStateCharacter(character : team[2],index : 2))
         if let choice = readLine(){
             switch choice {
-            case "1" : if  team[0].controlAlive() == true { return team[0]}
-            case "2" : if  team[1].controlAlive() == true {return team[1]}
-            case "3" : if  team[2].controlAlive() == true {return team[2]}
+            case "1" : if  team[0].controlAlive() { return team[0]}
+            case "2" : if  team[1].controlAlive() {return team[1]}
+            case "3" : if  team[2].controlAlive() {return team[2]}
 
             
             default : print("erreur, choix incorrect");
@@ -98,6 +96,15 @@ class Player {
             
         }
         return(selectedName())
+    }
+    
+    func controlIntChoice() -> Bool {
+        if let _ = Int(selectedName()){
+    for _ in 0...6 {
+           return true
+            }
+    }
+          return false
     }
     
     // check similar names for all teams
@@ -129,9 +136,7 @@ class Player {
     func insertInTeam (typechoice : String, otherPlayer : Player) {
         var typeCharacter : String = ""
         var isNameOk : Bool = false
-        
-        
-                      switch typechoice {
+                  switch typechoice {
                       case "1" : typeCharacter = "guerrier 🗡 "
                       case "2" : typeCharacter = "Mage ✨"
                       case "3" : typeCharacter = "assassin 🔪"
@@ -144,20 +149,20 @@ class Player {
         while (isNameOk == false){
               let namechoice = selectedName()
             
-           isNameOk = controlName (nameControl: namechoice, otherPlayer : otherPlayer)
+            isNameOk = controlName (nameControl: namechoice, otherPlayer : otherPlayer)
               if isNameOk == true {
                     switch typechoice {
-                       case "1" : team.insert(Warrior(name: namechoice),at:0)
-                       case "2" : team.insert(Wizzard(name: namechoice),at:0)
-                       case "3" : team.insert(Assassin(name: namechoice),at:0)
-                       case "4" : team.insert(Archer(name: namechoice),at:0)
-                       case "5" : team.insert(Shaman(name: namechoice),at:0)
-                       case "6" : team.insert(Priest(name: namechoice),at:0)
-                       default: print ("erreur");
+                       case "1" : team.append(Warrior(name: namechoice))
+                       case "2" : team.append(Wizzard(name: namechoice))
+                       case "3" : team.append(Assassin(name: namechoice))
+                       case "4" : team.append(Archer(name: namechoice))
+                       case "5" : team.append(Shaman(name: namechoice))
+                       case "6" : team.append(Priest(name: namechoice))
+                    default: print ("erreur");
                     }
-        print("♦️",namechoice + " a bien été ajouté dans ton équipe !")
-              }
-        }
+                }
+                print("♦️",namechoice + " a bien été ajouté dans ton équipe !")
+         }
     }
 }
 

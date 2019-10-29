@@ -8,8 +8,7 @@
 
 import Foundation
 
-// we initialize the instance of game class
-
+/// we initialize the instance of game class
 let game = Game (player1: Player (name : " Joueur 1"), player2: Player( name: " Joueur 2"))
 
 // we call the different functions (the three stages of the game : team building, fighting and winning )
